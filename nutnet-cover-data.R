@@ -5,6 +5,9 @@ library(plyr)
 library(dplyr)
 library(tidyr)
 
+
+setwd('C:\\Users\\Kim\\Dropbox\\working groups\\HRF response - NutNet and CORRE\\NutNet data')
+
 nutnetCover <- read.csv("full-cover-21-June-2016.csv")%>%
   mutate(lifeform=local_lifeform)
 

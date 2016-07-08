@@ -35,10 +35,12 @@ for(i in 1:length(plotList$plot)) {
   names(BC1)[names(BC1)=='BC[, 1]'] <- 'dissimilarity'
   
   #gather years of data
-  years <- as.data.frame(dataset$year)%>%
-    mutate(yr0=min(dataset$year))%>%
-    mutate(BC_years=paste(yr0, dataset$year, sep='::'))%>%
-    select(BC_years)
+  years <- as.data.frame(dataset$year)
+  names(years)[names(years)=='dataset$year'] <- 'year'
+  years <- years%>%
+    mutate(yr0=min(year))%>%
+    mutate(BC_years=paste(yr0, year, sep='::'))%>%
+    select(BC_years, year)
   
   #bind year labels to dissimilarity data
   dissimilarity <- cbind(BC1, years)%>%

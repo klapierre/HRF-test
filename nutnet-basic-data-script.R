@@ -6,7 +6,7 @@ library(tidyr)
 setwd('C:\\Users\\Kim\\Dropbox\\working groups\\HRF response - NutNet and CORRE\\NutNet data')
 
 ###read in data
-nutnetData <- read.csv('comb-by-plot-21-June-2016.csv')
+nutnetData <- read.csv('comb-by-plot-clim-soil-diversity21-Jun-2016.csv')
 
 nutnetBio <- nutnetData%>%
   #delete data with no cover
@@ -17,7 +17,7 @@ nutnetBio <- nutnetData%>%
   filter(experiment_type!='Observational')%>%
   #get rid of exclosure plots
   filter(Exclose==0)%>%
-  select(site_code, N, P, K, trt, plot, year_trt, year, rich, site_year_rich, plot_beta, total_mass, live_mass, dead_mass)
+  select(site_code, N, P, K, trt, plot, year_trt, year, rich, site_year_rich, MAT, MAP, RAIN_PET, plot_beta, total_mass, live_mass, dead_mass)
 
 
 ###calculate difference from pre-treatment year
